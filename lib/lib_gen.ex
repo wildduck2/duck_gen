@@ -1,53 +1,40 @@
 defmodule DuckGen do
-  alias Utils
+  alias Utils.Path, as: Path
   alias Utils.Optimus, as: Optimus
 
   def main(args) do
     Optimus.optimus(args)
-    |> IO.inspect()
+    |> generate()
   end
 
-  def parse_args(args) do
-    {opts, _rest, _invalid} =
-      OptionParser.parse(args,
-        switches: [
-          name: :string,
-          language: :string,
-          framework: :string,
-          style: :string,
-          context: :string
-        ]
-      )
+  defp generate(opts) do
+    %{args: args} = opts
 
-    opts
-  end
+    case args[:language] do
+      "typescript" ->
+        Path.upsert_folder(args[:project_dir])
+        generate_project_files(args[:project_dir])
 
-  def generate(opts) do
-    name = generate_file(opts[:name])
-    IO.inspect(name)
-    # case opts[:language] do
-    #   "typescript" ->
-    # end
-  end
-
-  def generate_file(name) do
-    case Utils.upsert_folder(name) do
-      :ok ->
-        IO.inspect(~c"hi")
-
-      :error ->
-        IO.puts("Error: The folder '#{name}' already exists.")
+      _ ->
+        IO.puts("Language not specified or unsupported")
     end
+  end
 
-    # if name do
-    #   IO.inspect(~c"hi")
-    # end
+  defp generate_project_files(project_dir) do
+    IO.puts("Initializing npm project in the created directory...")
 
-    # with {:ok, :error} <-
-    #        File.mkdir_p(name) do
-    #   File.write(name, "hello world")
-    # end
-    #
-    # IO.inspect(name, :ok, :error)
+    package_name =
+      IO.gets("what do you want to name your project? :")
+      |> String.trim()
+
+    package_description =
+      IO.gets("what do you want to describe your project? :")
+      |> String.trim()
+
+    package_auther =
+      IO.gets("what is your name? :")
+      |> String.trim()
+
+    Path.init_package_json_file(package_name, package_description, package_auther, project_dir)
   end
 end

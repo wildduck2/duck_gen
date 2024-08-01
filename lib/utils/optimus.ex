@@ -9,10 +9,16 @@ defmodule Utils.Optimus do
       allow_unknown_args: false,
       parse_double_dash: true,
       args: [
+        project_dir: [
+          value_name: "PROJECT_DIR",
+          help: "Specify the project directory",
+          require: true,
+          parser: :string
+        ],
         language: [
           value_name: "LANGUAGE",
           help: "Specify the language of the poilerplate",
-          require: false,
+          require: true,
           parser: :string
         ]
       ],
@@ -21,5 +27,21 @@ defmodule Utils.Optimus do
       subcommands: []
     )
     |> Optimus.parse!(argv)
+  end
+
+  defmodule ParseResult do
+    defstruct args: %{}, flags: %{}, options: %{}, unknown: []
+  end
+
+  def generate(%ParseResult{args: args}) do
+    IO.inspect(args)
+
+    case args[:language] do
+      "typescript" ->
+        IO.puts("Handling TypeScript generation")
+
+      _ ->
+        IO.puts("Language not specified or unsupported")
+    end
   end
 end
