@@ -1,3 +1,5 @@
 %{
   "optimus": {:hex, :optimus, "0.5.0", "7050c0ea7fc448605d77c30bcf34c582919ae2ac1a92116d6c2d404bec822931", [:mix], [], "hexpm", "acfc75b341952d5d1dde8e0550425ecd3b656dfefa1bb4f14aea10005936378a"},
+  "owl": {:hex, :owl, "0.11.0", "2cd46185d330aa2400f1c8c3cddf8d2ff6320baeff23321d1810e58127082cae", [:mix], [{:ucwidth, "~> 0.2", [hex: :ucwidth, repo: "hexpm", optional: true]}], "hexpm", "73f5783f0e963cc04a061be717a0dbb3e49ae0c4bfd55fb4b78ece8d33a65efe"},
+  "ucwidth": {:hex, :ucwidth, "0.2.0", "1f0a440f541d895dff142275b96355f7e91e15bca525d4a0cc788ea51f0e3441", [:mix], [], "hexpm", "c1efd1798b8eeb11fb2bec3cafa3dd9c0c3647bee020543f0340b996177355bf"},
 }

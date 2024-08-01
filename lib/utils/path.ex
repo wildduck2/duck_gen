@@ -1,4 +1,5 @@
 defmodule(Utils.Path) do
+
   @spec upsert_folder(String.t()) :: :ok | {:error, any}
   def upsert_folder(path) do
     normalized_path = Path.expand(path)
@@ -16,29 +17,15 @@ defmodule(Utils.Path) do
     end
   end
 
-  def init_package_json_file(package_name, package_description, package_auther, project_dir) do
-    package_json_content = """
-    {
-      "name": "#{package_name}",
-      "version": "0.0.0",
-      "description": "#{package_description}",
-      "repository": {
-        "type": "git",
-        "url": "git+https://github.com/your/repo.git"
-      },
-      "author": "#{package_auther}",
-      "license": "MIT"
-    }
-    """
+  def init_file_content(project_dir, file_name, file_content) do
+    package_json_path = Path.join(project_dir, file_name)
 
-    package_json_path = Path.join(project_dir, "package.json")
-
-    case File.write(package_json_path, package_json_content) do
+    case File.write(package_json_path, file_content) do
       :ok ->
-        IO.puts("package.json file created successfully.")
+        IO.puts("#{file_name} file created successfully.")
 
       {:error, reason} ->
-        IO.puts("Failed to create package.json file: #{reason}")
+        IO.puts("Failed to create #{file_name} file: #{reason}")
     end
   end
 end

@@ -22,7 +22,9 @@ defmodule LibGen.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:optimus, "~> 0.2"}
+      {:optimus, "~> 0.2"},
+      {:owl, "~> 0.11.0"},
+      {:ucwidth, "~> 0.2"}
 
       # {:dep_from_hexpm, "~> 0.3.0"},
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
