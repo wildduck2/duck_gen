@@ -19,6 +19,15 @@ defmodule Constants.Options do
 
   @nodejs_technologies ["ExpressJS", "NestJS", "Fastify"]
   def nodejs_technologies, do: @nodejs_technologies
+
+  @backend_design_patterns ["REST", "GraphQL"]
+  def backend_design_patterns, do: @backend_design_patterns
+
+  @database_types ["MySQL", "PostgreSQL", "MongoDB"]
+  def database_types, do: @database_types
+
+  @orms ["Prisma", "MikroORM"]
+  def orms, do: @orms
 end
 
 # web - backend - nodejs - Express

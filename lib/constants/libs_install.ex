@@ -25,10 +25,13 @@ defmodule Constants.LibsInstall do
     "@types/express-session",
     "@types/cookie-parser",
     "@types/supertest",
+    "@types/node",
+    "supertest",
+    "ts-node",
     "nodemon",
     "vitest",
-    "vitest-coverage",
-    "tsx"
+    "tsx",
+    "zod"
   ]
   def dev_dependencies, do: @dev_dependencies
 end

@@ -1,4 +1,4 @@
-defmodule Utils.Avilable do
+defmodule Utils.Available do
   alias Constants.Options
   alias Utils.BuildProject, as: BuildProject
 
