@@ -1,4 +1,4 @@
-defmodule Constants.Files.Zod do
+defmodule Files.Web.Backend.Nodejs.Zod do
   @zod_index_ts_content ~c"""
     export * from './user'
   """

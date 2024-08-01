@@ -53,44 +53,44 @@ defmodule Constants.FilesContent do
   def tsconfig_json_content, do: @tsconfig_json_content
 
   @biome_config_content ~c"""
-    {
+  {
+    "formatter": {
+      "enabled": true,
+      "formatWithErrors": false,
+      "ignore": [],
+      "attributePosition": "auto",
+      "indentStyle": "space",
+      "indentWidth": 2,
+      "lineWidth": 80,
+      "lineEnding": "lf"
+    },
+    "typescript": {
       "formatter": {
-        "enabled": true,
-        "formatWithErrors": false,
-        "ignore": [],
-        "attributePosition": "auto",
-        "indentStyle": "space", 
-        "indentWidth": 2,
-        "lineWidth": 80,
-        "lineEnding": "lf"
-      },
-      "typescript": {
-        "formatter": {
-          "arrowParentheses": "always",
-          "bracketSameLine": false,
-          "bracketSpacing": true,
-          "jsxQuoteStyle": "double",
-          "quoteProperties": "asNeeded",
-          "semicolons": "always",
-          "trailingCommas": "all"
-        }
-      },
-      "linting": {
-        "enabled": true,
-        "commands": {
-          "lint": "npx eslint .",
-          "lint:fix": "npx eslint . --fix"
-        },
-        "options": {
-          "lintOnSave": true
-        },  
+        "arrowParentheses": "always",
+        "bracketSameLine": false,
+        "bracketSpacing": true,
+        "jsxQuoteStyle": "double",
+        "quoteProperties": "asNeeded",
+        "semicolons": "always",
+        "trailingCommas": "all"
       }
-      "json": {
-        "formatter": {
-          "trailingCommas": "none"
-        }
+    },
+    "linting": {
+      "enabled": true,
+      "commands": {
+        "lint": "npx eslint .",
+        "lint:fix": "npx eslint . --fix"
+      },
+      "options": {
+        "lintOnSave": true
+      }
+    },
+    "json": {
+      "formatter": {
+        "trailingCommas": "none"
       }
     }
+  }
   """
   def biome_config_content, do: @biome_config_content
 
@@ -136,10 +136,7 @@ defmodule Constants.FilesContent do
   def constants_index_ts_content, do: @constants_index_ts_content
 
   @config_index_ts_content ~c"""
-    export const env = {
-      PORT: process.env.PORT || 3000,
-      CORS_PATH: process.env.CORS_PATH || 'http://localhost:yourport',
-    }
+
   """
   def config_index_ts_content, do: @config_index_ts_content
 
@@ -159,5 +156,4 @@ defmodule Constants.FilesContent do
     import * from '.'
   """
   def utils_index_ts_content, do: @utils_index_ts_content
-
 end

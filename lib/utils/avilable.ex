@@ -45,7 +45,7 @@ defmodule Utils.Avilable do
   def available_nodejs_technologies(stack_technology) do
     case stack_technology do
       "ExpressJS" ->
-        BuildProject.build_ts_project_files(["Web", "Backend", "Nodejs", "Express"])
+        BuildProject.build_project(["Web", "Backend", "Nodejs", "Express"])
 
       "NestJS" ->
         Options.nodejs_technologies()
